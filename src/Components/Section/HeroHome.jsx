@@ -19,11 +19,7 @@ const scaleIn = (delay = 0) => ({
   transition: { type: 'spring', stiffness: 200, damping: 18, delay },
 })
 
-const slideUp = (delay = 0) => ({
-  initial: { y: 40, opacity: 0 },
-  animate: { y: 0, opacity: 1 },
-  transition: { type: 'spring', stiffness: 100, damping: 20, delay },
-})
+
 
 function HeroHome() {
   const statsData = [
