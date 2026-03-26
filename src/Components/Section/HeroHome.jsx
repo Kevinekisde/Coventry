@@ -49,19 +49,11 @@ function HeroHome() {
       </div>
 
       {/* Blobs */}
-      <motion.div
-        className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/20 rounded-full blur-[140px] pointer-events-none"
-        animate={{ scale: [1, 1.3, 1], opacity: [0.2, 0.4, 0.2], x: [0, 40, 0] }}
-        transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
-      />
-      <motion.div
-        className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-pink-600/15 rounded-full blur-[120px] pointer-events-none"
-        animate={{ scale: [1, 1.25, 1], opacity: [0.15, 0.35, 0.15], x: [0, -30, 0] }}
-        transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-      />
+      <div className="absolute top-0 right-0 w-[450px] h-[450px] bg-primary/20 rounded-full blur-[80px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-pink-600/15 rounded-full blur-[80px] pointer-events-none" />
 
       {/* Partículas */}
-      {[...Array(16)].map((_, i) => (
+      {[...Array(6)].map((_, i) => (
         <motion.div
           key={i}
           className="absolute rounded-full bg-primary pointer-events-none"

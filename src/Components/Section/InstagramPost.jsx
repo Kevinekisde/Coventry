@@ -1,7 +1,37 @@
-import React from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Instagram, Zap, ArrowRight } from 'lucide-react'
 import { InstagramEmbed } from 'react-social-media-embed'
+
+// Solo monta el iframe cuando el elemento entra al viewport
+function LazyInstagramEmbed({ url }) {
+    const ref = useRef(null)
+    const [inView, setInView] = useState(false)
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setInView(true)
+                    observer.disconnect()
+                }
+            },
+            { rootMargin: '200px' }
+        )
+        const el = ref.current
+        if (el) observer.observe(el)
+        return () => observer.disconnect()
+    }, [])
+
+    return (
+        <div ref={ref} className="min-h-[450px] flex items-center justify-center">
+            {inView
+                ? <InstagramEmbed url={url} width="100%" />
+                : <div className="w-full h-[450px] bg-white/5 rounded-2xl animate-pulse" />
+            }
+        </div>
+    )
+}
 
 function InstagramFeed() {
     // Array de URLs de tus posts de Instagram
@@ -59,7 +89,7 @@ function InstagramFeed() {
                 />
 
                 {/* Partículas flotantes */}
-                {[...Array(8)].map((_, i) => (
+                {[...Array(4)].map((_, i) => (
                     <motion.div
                         key={i}
                         className="absolute w-1.5 h-1.5 bg-primary rounded-full"
@@ -206,7 +236,7 @@ function InstagramFeed() {
                 />
 
                 {/* Partículas flotantes */}
-                {[...Array(12)].map((_, i) => (
+                {[...Array(5)].map((_, i) => (
                     <motion.div
                         key={i}
                         className="absolute w-1.5 h-1.5 bg-primary rounded-full"
@@ -277,10 +307,7 @@ function InstagramFeed() {
                                 transition={{ duration: 0.6, delay: index * 0.1 }}
                             >
                                 <div className="w-full max-w-[400px] rounded-2xl overflow-hidden border border-white/10 hover:border-primary/30 transition-all shadow-lg hover:shadow-[0_0_30px_rgba(255,102,193,0.2)]">
-                                    <InstagramEmbed
-                                        url={url}
-                                        width="100%"
-                                    />
+                                    <LazyInstagramEmbed url={url} />
                                 </div>
                             </motion.div>
                         ))}

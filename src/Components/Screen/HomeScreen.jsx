@@ -77,36 +77,11 @@ export default function VolleyballLanding() {
             </div>
 
             {/* Gradientes animados más grandes */}
-            <motion.div
-              className="absolute top-0 right-0 w-[1000px] h-[1000px] bg-primary/20 rounded-full blur-[180px]"
-              animate={{
-                scale: [1, 1.4, 1],
-                x: [0, 100, 0],
-                y: [0, -50, 0],
-              }}
-              transition={{
-                duration: 15,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            />
-            <motion.div
-              className="absolute bottom-0 left-0 w-[900px] h-[900px] bg-pink-500/20 rounded-full blur-[180px]"
-              animate={{
-                scale: [1, 1.3, 1],
-                x: [0, -100, 0],
-                y: [0, 50, 0],
-              }}
-              transition={{
-                duration: 12,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 1
-              }}
-            />
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[100px]" />
+            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-pink-500/20 rounded-full blur-[100px]" />
 
-            {/* Partículas flotantes más grandes y visibles */}
-            {[...Array(25)].map((_, i) => (
+            {/* Partículas flotantes */}
+            {[...Array(8)].map((_, i) => (
               <motion.div
                 key={i}
                 className="absolute rounded-full bg-primary"
@@ -329,34 +304,11 @@ export default function VolleyballLanding() {
         </div>
 
         {/* Gradientes animados */}
-        <motion.div
-          className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px]"
-          animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.2, 0.3, 0.2]
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-        <motion.div
-          className="absolute bottom-1/4 left-0 w-[500px] h-[500px] bg-pink-500/15 rounded-full blur-[100px]"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.15, 0.25, 0.15]
-          }}
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2
-          }}
-        />
+        <div className="absolute top-1/4 right-0 w-[400px] h-[400px] bg-primary/20 rounded-full blur-[80px]" />
+        <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-pink-500/15 rounded-full blur-[80px]" />
 
         {/* Partículas flotantes */}
-        {[...Array(10)].map((_, i) => (
+        {[...Array(4)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute w-1.5 h-1.5 bg-primary rounded-full"
@@ -503,18 +455,7 @@ export default function VolleyballLanding() {
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.8 }}
       >
-        <motion.div
-          className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[800px] h-[200px] bg-primary/10 rounded-full blur-[100px]"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.1, 0.2, 0.1]
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
+        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[400px] h-[150px] bg-primary/10 rounded-full blur-[60px]" />
 
         <div className="container mx-auto px-4 text-center relative z-10">
           <motion.div
